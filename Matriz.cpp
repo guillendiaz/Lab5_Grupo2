@@ -102,10 +102,10 @@ Matriz Matriz::operator *(Matriz& rvalue){
 		}
 
 		for (int i= 0; i < Fila ; i++) {
-			for (int j= 0; j < rValue.getColumna() ; j++) {
+			for (int j= 0; j < rvalue.getColumna() ; j++) {
 				int sumatoria=0;
 				for (int k= 0; k < Columna ; k++) {
-					sumatoria+=(Matrix[i][k]*rValue.getMatriz()[k][j]);
+					sumatoria+=(Matrix[i][k]*rvalue.getMatriz()[k][j]);
 				}
 				salida[i][j]= sumatoria;
 			}

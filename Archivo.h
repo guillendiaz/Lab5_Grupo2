@@ -7,7 +7,7 @@ using namespace std;
 
 class Archivo{
 	private:
-		string fileName="Log.txt";
+		string fileName;
 
 	public:
 		Archivo();

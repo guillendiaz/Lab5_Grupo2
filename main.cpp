@@ -10,6 +10,7 @@ int Menu();
 int MenuO();
 //Se ingresa al MenuO()
 int main(){
+	Archivo archivo=Archivo();
 	int opcion;
 	vector<Matriz> Matrices;
 	vector<Matriz> Operaciones;
@@ -37,6 +38,7 @@ int main(){
 							cout<<"Matriz 2: ";
 							cin>>Matriz2;
 							Matriz mat=Matrices.at(Matriz1)+Matrices.at(Matriz2);
+							archivo.escribirMatrizBin(Matrices.at(Matriz1).getMatriz(), Matrices.at(Matriz1).getFila(), Matrices.at(Matriz1).getColumna(), Matrices.at(Matriz2).getMatriz(), Matrices.at(Matriz2).getFila(), Matrices.at(Matriz2).getColumna(), '+', mat.getMatriz(), mat.getFila(), mat.getColumna());
 							
 					}//switch()2
 				}while(OpcionOperador != 8);}
@@ -84,5 +86,5 @@ int MenuO(){
 
 	}//while()
 
-	while
+
 }//MenuO()

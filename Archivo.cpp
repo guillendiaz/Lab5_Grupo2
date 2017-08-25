@@ -1,7 +1,7 @@
 #include "Archivo.h"
 
 Archivo::Archivo(){
-
+	fileName="Log.txt";
 }
 
 void Archivo::escribirMatrizUnaria(int** matriz, int sizex, int sizey, char operador, int ** operada, int tamanox, int tamanoy){
