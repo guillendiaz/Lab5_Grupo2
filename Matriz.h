@@ -15,7 +15,7 @@ class Matriz {
 		int getFila();
 		void setColumna(int);
 		int getColumna();
-		void GenMatriz();
+		int** GenMatriz(int**, int, int);
 		~Matriz();
 		//Operadores
 		Matriz operator +(Matriz&, Matriz&);

@@ -35,7 +35,7 @@ int Matriz::getColumna(){
 	return Columna;
 }//getColumna()
 
-void Matriz::GenMatriz(){
+int** Matriz::GenMatriz(int** Matrix, int Fila, int Columna){
 	for(int i=0; i<Fila; i++){
 		for(int j=0; j<Columna; j++){
 			int Valor;
@@ -44,4 +44,5 @@ void Matriz::GenMatriz(){
 			Matrix[i][j] = Valor;
 		}//for()2
 	}//for()
+	return Matrix;
 }//GenMatriz()
