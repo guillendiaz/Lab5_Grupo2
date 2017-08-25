@@ -37,7 +37,7 @@ int main(){
 							cout<<"Matriz 2: ";
 							cin>>Matriz2;
 							Matriz mat=Matrices.at(Matriz1)+Matrices.at(Matriz2);
-							
+								
 					}//switch()2
 				}while(OpcionOperador != 8);}
 				break;

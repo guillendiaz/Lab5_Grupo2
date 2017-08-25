@@ -134,3 +134,52 @@ Matriz Matriz::operator *(Matriz& rvalue){
 
 	}
 }
+
+Matriz Matriz::operator -(Matriz& rvalue){
+	if (Fila == rvalue.getFila() && Columna == rvalue.getColumna()) {
+
+		int ** salida = new int* [Fila];
+		for(int i=0; i<Fila; i++){
+			salida[i] = new int[Columna];
+		}
+
+		for (int i= 0; i < Fila ; i++) {
+			for (int j= 0; j < Columna ; j++) {
+				salida[i][j]= Matrix[i][j] - rvalue.getMatriz()[i][j];
+			}
+		}
+
+		return Matriz(salida, Fila, Columna);
+
+	}else{
+
+		int ** salida = new int* [Fila];
+		for(int i=0; i<Fila; i++){
+			salida[i] = new int[Columna];
+		}
+		
+		for(int i=0; i<Fila; i++){
+			for(int j=0; j<Columna; j++){
+				salida[i][j] = 0;
+			}
+		}
+
+		cout<<endl<<"Las matrizes no tienen el mismo tamaño. "<<endl;
+
+		return Matriz(salida, Fila, Columna);
+
+	}
+Matriz Matriz::operator()(){
+	int** salida = new int* [Fila];
+	for(int i=0; i<Fila; i++){
+		salida[i] = new int[Columna];
+	}
+
+	for(int i=0; i<Fila; i++){
+		for(int i=0; i<Fila; i++){
+			salida[i][j] = Matrix[j][i];
+		}
+	}
+}//operator()}
+
+
