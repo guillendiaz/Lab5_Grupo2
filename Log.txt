@@ -1,0 +1,26 @@
+=========Fri Aug 25 17:16:32 2017
+=========
+
+<Left Hand Side Operator>
+
+[2][2]
+[2][2]
+
+<Operacion>
+
++
+
+<Right Hand Side Operator>
+
+[2][2]
+[2][2]
+
+=
+
+<Matriz Operada>
+
+[4][4]
+[4][4]
+
+==========FIN==========
+

@@ -17,16 +17,16 @@ class Matriz {
 		int getFila();
 		void setColumna(int);
 		int getColumna();
-		int** GenMatriz(int**, int, int);
+		void GenMatriz();
 		~Matriz();
 		//Operadores
-		Matriz operator +(Matriz&);
-		Matriz operator -();
-		Matriz operator -(Matriz&);
-		Matriz operator *(Matriz&);
-		Matriz operator ()();
+		Matriz* operator +(Matriz&);
+		Matriz* operator -();
+		Matriz* operator -(Matriz&);
+		Matriz* operator *(Matriz&);
+		Matriz* operator ()();
 		bool operator ==(Matriz&);
-		Matriz operator --();
+		Matriz* operator --();
 };
 
 #endif

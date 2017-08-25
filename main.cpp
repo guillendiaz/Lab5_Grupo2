@@ -12,8 +12,8 @@ int MenuO();
 int main(){
 	Archivo archivo=Archivo();
 	int opcion;
-	vector<Matriz> Matrices;
-	vector<Matriz> Operaciones;
+	vector<Matriz*> Matrices;
+	vector<Matriz*> Operaciones;
 	do{
 		switch(opcion=Menu()){
 			case 1:{
@@ -22,11 +22,13 @@ int main(){
 				cin>>Fila;
 				cout<<"Ingrese la Columna: "<<endl;
 				cin>>Columna;
-				Matriz Mat =  Matriz(Fila, Columna);
-				Mat.GenMatriz(Mat.getMatriz(), Fila, Columna);
-				Matrices.push_back(Mat);}
+				Matriz* Mat = new Matriz(Fila, Columna);
+				Mat->GenMatriz();
+				Matrices.push_back(Mat);
+				}
 				break;
 			case 2:{
+				cout << "caso 2" << endl;
 				int OpcionOperador;
 				do{
 					switch(OpcionOperador = MenuO()){
@@ -37,13 +39,9 @@ int main(){
 							cout<<endl;
 							cout<<"Matriz 2: ";
 							cin>>Matriz2;
-							Matriz mat=Matrices.at(Matriz1)+Matrices.at(Matriz2);
-<<<<<<< HEAD
-							archivo.escribirMatrizBin(Matrices.at(Matriz1).getMatriz(), Matrices.at(Matriz1).getFila(), Matrices.at(Matriz1).getColumna(), Matrices.at(Matriz2).getMatriz(), Matrices.at(Matriz2).getFila(), Matrices.at(Matriz2).getColumna(), '+', mat.getMatriz(), mat.getFila(), mat.getColumna());
+							Matriz* mat = *Matrices.at(Matriz1)+ *Matrices.at(Matriz2);
+							archivo.escribirMatrizBin(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), Matrices.at(Matriz2)->getMatriz(), Matrices.at(Matriz2)->getFila(), Matrices.at(Matriz2)->getColumna(), '+', mat->getMatriz(), mat->getFila(), mat->getColumna());
 							
-=======
-								
->>>>>>> 1e7553cc8e60e692db9f70f96b31721a8c54af34
 					}//switch()2
 				}while(OpcionOperador != 8);}
 				break;
@@ -90,5 +88,5 @@ int MenuO(){
 
 	}//while()
 
-
+ 
 }//MenuO()

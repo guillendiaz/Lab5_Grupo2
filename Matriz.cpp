@@ -16,7 +16,9 @@ Matriz::Matriz(int Fila, int Columna){
 		for(int j=0; j<Columna; j++){
 			Matrix[i][j] = 0;
 		}//for()3
-	}//for()2
+	}//for()
+	this->Fila=Fila;
+	this->Columna=Columna;
 }//Matriz(int, int)
 
 Matriz::Matriz(int** mat, int fila, int columna){
@@ -45,19 +47,18 @@ int** Matriz::getMatriz(){
 	return Matrix;
 }
 
-int** Matriz::GenMatriz(int**, int Fila, int Columna){
+void Matriz::GenMatriz(){
+	cout << Fila << endl;
 	for(int i=0; i<Fila; i++){
 		for(int j=0; j<Columna; j++){
 			int Valor;
-			cout<<"Ingrese Valor: ";
 			cin>>Valor;
 			Matrix[i][j] = Valor;
 		}//for()2
 	}//for()
-	return Matrix;
 }//GenMatriz()
 
-Matriz Matriz::operator +(Matriz& rvalue){
+Matriz* Matriz::operator +(Matriz& rvalue){
 	if (Fila == rvalue.getFila() && Columna == rvalue.getColumna()) {
 
 		int ** salida = new int* [Fila];
@@ -71,7 +72,7 @@ Matriz Matriz::operator +(Matriz& rvalue){
 			}
 		}
 
-		return Matriz(salida, Fila, Columna);
+		return new Matriz(salida, Fila, Columna);
 
 	}else{
 
@@ -88,12 +89,12 @@ Matriz Matriz::operator +(Matriz& rvalue){
 
 		cout<<endl<<"Las matrizes no tienen el mismo tamaño. "<<endl;
 
-		return Matriz(salida, Fila, Columna);
+		return new Matriz(salida, Fila, Columna);
 
 	}
 }
 
-Matriz Matriz::operator *(Matriz& rvalue){
+Matriz* Matriz::operator *(Matriz& rvalue){
 	if (Columna == rvalue.getFila()) {
 		
 		int ** salida = new int* [Fila];
@@ -111,7 +112,7 @@ Matriz Matriz::operator *(Matriz& rvalue){
 			}
 		}
 
-		return Matriz(salida, Fila, rvalue.getColumna());
+		return new Matriz(salida, Fila, rvalue.getColumna());
 
 
 	}else {
@@ -129,13 +130,13 @@ Matriz Matriz::operator *(Matriz& rvalue){
 
 		cout<<endl<<"Las matrizes no el mismo numero entre fila-columna. "<<endl;
 
-		return Matriz(salida, Fila, Columna);
+		return new Matriz(salida, Fila, Columna);
 
 
 	}
 }
 
-Matriz Matriz::operator -(Matriz& rvalue){
+Matriz* Matriz::operator -(Matriz& rvalue){
 	if (Fila == rvalue.getFila() && Columna == rvalue.getColumna()) {
 
 		int ** salida = new int* [Fila];
@@ -149,7 +150,7 @@ Matriz Matriz::operator -(Matriz& rvalue){
 			}
 		}
 
-		return Matriz(salida, Fila, Columna);
+		return new Matriz(salida, Fila, Columna);
 
 	}else{
 
@@ -166,20 +167,34 @@ Matriz Matriz::operator -(Matriz& rvalue){
 
 		cout<<endl<<"Las matrizes no tienen el mismo tamaño. "<<endl;
 
-		return Matriz(salida, Fila, Columna);
+		return new Matriz(salida, Fila, Columna);
 
 	}
-Matriz Matriz::operator()(){
-	int** salida = new int* [Fila];
-	for(int i=0; i<Fila; i++){
-		salida[i] = new int[Columna];
-	}
+}
 
-	for(int i=0; i<Fila; i++){
+	Matriz* Matriz::operator()(){
+		int** salida = new int* [Fila];
 		for(int i=0; i<Fila; i++){
-			salida[i][j] = Matrix[j][i];
+			salida[i] = new int[Columna];
 		}
+
+		for(int i=0; i<Fila; i++){
+			for(int j=0; j<Columna; j++){
+				salida[i][j] = Matrix[j][i];
+			}
+		}
+		return new Matriz(salida, Columna, Fila);
 	}
-}//operator()}
+//operator()}
+
+
+Matriz::~Matriz(){
+	for (int i= 0; i < Fila  ; i++) {
+		delete[] Matrix[i];
+		Matrix[i]=NULL;
+	}
+
+	delete[] Matrix;
+}
 
 
