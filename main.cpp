@@ -32,7 +32,7 @@ int main(){
 				int OpcionOperador;
 				do{
 					switch(OpcionOperador = MenuO()){
-						case 1:
+						case 1:{
 							int Matriz1, Matriz2;
 							cout<<"Matriz 1: ";
 							cin>>Matriz1;
@@ -41,7 +41,70 @@ int main(){
 							cin>>Matriz2;
 							Matriz* mat = *Matrices.at(Matriz1)+ *Matrices.at(Matriz2);
 							archivo.escribirMatrizBin(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), Matrices.at(Matriz2)->getMatriz(), Matrices.at(Matriz2)->getFila(), Matrices.at(Matriz2)->getColumna(), '+', mat->getMatriz(), mat->getFila(), mat->getColumna());
+						}
+							break;
+						case 2:{
+							int Matriz1, Matriz2;
+							cout<<"Matriz: ";
+							cin>>Matriz1;
+							cout<<endl;
+							Matriz* mat = -*Matrices.at(Matriz1);
+							archivo.escribirMatrizUnaria(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), '-', mat->getMatriz(), mat->getFila(), mat->getColumna());
+						}
+							break;
+						case 3:{
+							int Matriz1, Matriz2;
+							cout<<"Matriz 1: ";
+							cin>>Matriz1;
+							cout<<endl;
+							cout<<"Matriz 2: ";
+							cin>>Matriz2;
+							Matriz* mat = *Matrices.at(Matriz1)- *Matrices.at(Matriz2);
+							archivo.escribirMatrizBin(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), Matrices.at(Matriz2)->getMatriz(), Matrices.at(Matriz2)->getFila(), Matrices.at(Matriz2)->getColumna(), '-', mat->getMatriz(), mat->getFila(), mat->getColumna());
+						}
+							break;
+						case 4:{
+							int Matriz1, Matriz2;
+							cout<<"Matriz 1: ";
+							cin>>Matriz1;
+							cout<<endl;
+							cout<<"Matriz 2: ";
+							cin>>Matriz2;
+							Matriz* mat = *Matrices.at(Matriz1) * *Matrices.at(Matriz2);
+							archivo.escribirMatrizBin(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), Matrices.at(Matriz2)->getMatriz(), Matrices.at(Matriz2)->getFila(), Matrices.at(Matriz2)->getColumna(), '*', mat->getMatriz(), mat->getFila(), mat->getColumna());
+						}
+						case 5:{
+							/*
+							int Matriz1, Matriz2;
+							cout<<"Matriz: ";
+							cin>>Matriz1;
+							cout<<endl;
+							Matriz* mat = / *Matrices.at(Matriz1);
+							archivo.escribirMatrizUnaria(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), '(', mat->getMatriz(), mat->getFila(), mat->getColumna());
+								*/
+						}
+							break;
+						case 6:{
+							int Matriz1, Matriz2;
+							cout<<"Matriz 1: ";
+							cin>>Matriz1;
+							cout<<endl;
+							cout<<"Matriz 2: ";
+							cin>>Matriz2;
+							bool igual = *Matrices.at(Matriz1) == *Matrices.at(Matriz2);
+							cout <<igual;
+							Matriz* mat= Matrices.at(Matriz1);
+							archivo.escribirMatrizBin(Matrices.at(Matriz1)->getMatriz(), Matrices.at(Matriz1)->getFila(), Matrices.at(Matriz1)->getColumna(), Matrices.at(Matriz2)->getMatriz(), Matrices.at(Matriz2)->getFila(), Matrices.at(Matriz2)->getColumna(), '=', mat->getMatriz(), mat->getFila(), mat->getColumna());
+						}
+							break;
+						case 8:{
 							
+						}
+							break;
+						default:
+							cout<<"Valor ingresado incorrecto o selecciono inversa"<<endl;
+							break;
+
 					}//switch()2
 				}while(OpcionOperador != 8);}
 				break;
