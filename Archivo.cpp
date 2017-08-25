@@ -1,6 +1,10 @@
 #include "Archivo.h"
 
-void Archivo::escribitMatriz(int** matriz, int sizex, int sizey, char operador, int ** operada, int tamanox, int tamanoy){
+Archivo::Archivo(){
+
+}
+
+void Archivo::escribirMatrizUnaria(int** matriz, int sizex, int sizey, char operador, int ** operada, int tamanox, int tamanoy){
 	time_t fecha= time(0);
 	char* sFecha = ctime(&fecha);
 
@@ -56,7 +60,7 @@ void Archivo::escribirMatrizBin(int** LHSO, int LHSOX, int LHSOY, int** RHSO, in
 		<<"<Right Hand Side Operator>"<<endl<<endl;
 
 
-	for (int i= 0; i < RSHOX ; i++) {
+	for (int i= 0; i < RHSOX ; i++) {
 		for (int j= 0; j < RHSOY ; j++) {
 			writeFile<<"["<<RHSO[i][j]<<"]";
 		}

@@ -11,6 +11,8 @@ class Matriz {
 	public:
 		Matriz();
 		Matriz(int, int);
+		Matriz(int**, int, int);
+		int** getMatriz();
 		void setFila(int);
 		int getFila();
 		void setColumna(int);
@@ -18,13 +20,13 @@ class Matriz {
 		void GenMatriz();
 		~Matriz();
 		//Operadores
-		Matriz operator +(Matriz&, Matriz&);
+		Matriz operator +(Matriz&);
+		Matriz operator -();
 		Matriz operator -(Matriz&);
-		Matriz operator -(Matriz&, Matriz&);
-		Matriz operator *(Matriz&, Matriz&);
-		Matriz operator ()(Matriz&);
-		bool operator ==(Matriz&, Matriz&);
-		Matriz operator --(Matriz&);
+		Matriz operator *(Matriz&);
+		Matriz operator ()();
+		bool operator ==(Matriz&);
+		Matriz operator --();
 };
 
 #endif
