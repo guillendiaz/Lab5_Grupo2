@@ -38,8 +38,12 @@ int main(){
 							cout<<"Matriz 2: ";
 							cin>>Matriz2;
 							Matriz mat=Matrices.at(Matriz1)+Matrices.at(Matriz2);
+<<<<<<< HEAD
 							archivo.escribirMatrizBin(Matrices.at(Matriz1).getMatriz(), Matrices.at(Matriz1).getFila(), Matrices.at(Matriz1).getColumna(), Matrices.at(Matriz2).getMatriz(), Matrices.at(Matriz2).getFila(), Matrices.at(Matriz2).getColumna(), '+', mat.getMatriz(), mat.getFila(), mat.getColumna());
 							
+=======
+								
+>>>>>>> 1e7553cc8e60e692db9f70f96b31721a8c54af34
 					}//switch()2
 				}while(OpcionOperador != 8);}
 				break;
