@@ -96,3 +96,45 @@ Matriz Matriz::operator +(Matriz& rvalue){
 
 	}
 }
+
+Matriz Matriz::operator *(Matriz& rvalue){
+	if (Columna == rvalue.getFila()) {
+		
+		int ** salida = new int* [Fila];
+		for(int i=0; i<Fila; i++){
+			salida[i] = new int[rvalue.getColumna()];
+		}
+
+		for (int i= 0; i < Fila ; i++) {
+			for (int j= 0; j < rValue.getColumna() ; j++) {
+				int sumatoria=0;
+				for (int k= 0; k < Columna ; k++) {
+					sumatoria+=(Matrix[i][k]*rValue.getMatriz()[k][j]);
+				}
+				salida[i][j]= sumatoria;
+			}
+		}
+
+		return Matriz(salida, Fila, rvalue.getColumna());
+
+
+	}else {
+
+		int ** salida = new int* [Fila];
+		for(int i=0; i<Fila; i++){
+			salida[i] = new int[Columna];
+		}
+		
+		for(int i=0; i<Fila; i++){
+			for(int j=0; j<Columna; j++){
+				salida[i][j] = 0;
+			}
+		}
+
+		cout<<endl<<"Las matrizes no el mismo numero entre fila-columna. "<<endl;
+
+		return Matriz(salida, Fila, Columna);
+
+
+	}
+}
