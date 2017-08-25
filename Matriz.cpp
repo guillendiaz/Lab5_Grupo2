@@ -41,15 +41,11 @@ int Matriz::getColumna(){
 	return Columna;
 }//getColumna()
 
-<<<<<<< HEAD
-int** Matriz::GenMatriz(int** Matrix, int Fila, int Columna){
-=======
 int** Matriz::getMatriz(){
 	return Matrix;
 }
 
-void Matriz::GenMatriz(){
->>>>>>> f3eb4261636c511021e0a6d410d484715b1078d4
+int** Matriz::GenMatriz(int**, int Fila, int Columna){
 	for(int i=0; i<Fila; i++){
 		for(int j=0; j<Columna; j++){
 			int Valor;
